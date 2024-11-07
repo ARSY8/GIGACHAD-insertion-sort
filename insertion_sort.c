@@ -1,21 +1,6 @@
 #include "insertion_sort.h"
+#include "person_information.h"
 
-
-int compare_char(void* a, void* b) {
-	return *(char*)a < *(char*)b ? -1 : 0;
-}
-
-int compare_int(void* a, void* b) {
-	return *(int*)a < *(int*)b ? -1 : 0;
-}
-
-int compare_float(void* a, void* b) {
-	return *(float*)a < *(float*)b ? -1 : 0;
-}
-
-int compare_person(void* a, void* b) {
-	return ((INFO*)a) -> last_name[0] < ((INFO*)b)->last_name[0] ? -1 : 0;
-}
 
 void insertion_sort(void* arr, int len, size_t size_in_bytes, int (*compare)(void*, void*)) {
 	for (int i = 1; i < len; i++) {

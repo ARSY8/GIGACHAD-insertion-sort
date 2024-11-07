@@ -1,10 +1,13 @@
 #include <stdio.h>
 #include "insertion_sort.h"
+#include "person_information.h"
+#include "assert_insertion_sort.h"
 #define compare_string compare_char
+
 
 int main(void) {
 
-	int int_arr[] = { -5, 7, -2, 10, 5, -3, 9, 8 };
+	int int_arr[] = { 123481, 12412, 6453, 2274, 22782 };
 	float float_arr[] = { 3.14, -1.5, 0, 2.71, -8.25, 5.5 };
 	char char_arr[] = "Hello World";
 	char string_arr[][25] = { "hello world", "Hello", "My name", "is Arseniy, and I", "love exploring new", "technologies." };
@@ -13,12 +16,13 @@ int main(void) {
 		{"Yudintsev", "Arseniy", 'M', 18},
 		{"Guseynov", "Amir", 'M', 19},
 		{"Popov", "Maxim", 'M', 19},
-		{"Gulyaev", "Nikolay", 'M', 19},
 		{"Peshne", "Elizabeth", 'W', 19},
 		{"Romanov", "Semen", 'M', 19}
 	};
 
-	char data_type = 's';
+	run_all_tests();
+
+	char data_type = '[';
 
 	int (*compare[])(void*, void*) = { compare_int, compare_float, compare_char, compare_string, compare_person };
 
@@ -65,6 +69,24 @@ int main(void) {
 			printf("Возраст: %i.\n", persons[i].old);
 		}
 	}
-
+	else {
+	}
 	return 0;
+}
+
+
+int compare_char(void* a, void* b) {
+	return *(char*)a < *(char*)b ? -1 : 0;
+}
+
+int compare_int(void* a, void* b) {
+	return *(int*)a < *(int*)b ? -1 : 0;
+}
+
+int compare_float(void* a, void* b) {
+	return *(float*)a < *(float*)b ? -1 : 0;
+}
+
+int compare_person(void* a, void* b) {
+	return ((INFO*)a)->last_name[0] < ((INFO*)b)->last_name[0] ? -1 : 0;
 }
