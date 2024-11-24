@@ -91,7 +91,7 @@ void test_insertion_sort_char(void) {
 void test_insertion_sort_string(void) {
 
 	size_t random_lenght = rand() % 50 + 5;
-	size_t random_size = rand() % 10 + 2;
+	size_t random_size = rand() % 1000 + 2;
 
 	char** arr_string = malloc(sizeof(char*) * random_size);
 
@@ -130,7 +130,7 @@ void test_insertion_sort_string(void) {
 
 void test_insertion_sort_struct(void) {
 
-	int random_quantity = 6; //rand() % 4 + 2;
+	int random_quantity = rand() % 100 + 2; 
 
 	INFO* persons = malloc(sizeof(INFO) * random_quantity);
 

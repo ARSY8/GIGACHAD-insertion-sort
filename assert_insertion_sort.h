@@ -11,6 +11,7 @@ void test_insertion_sort_struct(void);
 int compare_int(void* a, void* b);
 int compare_float(void* a, void* b);
 int compare_char(void* a, void* b);
+
 int compare_string_v1(void* a, void* b);
 int compare_string_v2(void* a, void* b);
 int compare_person_v1(void* a, void* b);
