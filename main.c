@@ -36,22 +36,22 @@ int compare_string_v2(void* a, void* b) {
 	char* str1 = *(char**)a;
 	char* str2 = *(char**)b;
 
+	int lenght = 1;
+
 	if (str1[0] == str2[0]) {
-		int lenght = 0;
 		while (str1[lenght] != '\0' || str2[lenght] != '\0') {
 			lenght++;
 		}
+	}
 
-		for (int j = 1; j < lenght; j++) {
-			if (str1[j] < str2[j]) {
-				return 1;
-			}
-			else {
-				return 0;
-			}
+	for (int j = 0; j < lenght; j++) {
+		if (str1[j] < str2[j]) {
+			return 1;
+		}
+		else {
+			return 0;
 		}
 	}
-	return str1[0] < str2[0] ? 1 : 0;
 }
 
 int compare_person_v1(void* a, void* b) {
@@ -65,21 +65,20 @@ int compare_person_v2(void* a, void* b) {
 	char* str1 = ((INFO*)a)->last_name;
 	char* str2 = ((INFO*)b)->last_name;
 
+	int lenght = 1;
 
 	if (str1[0] == str2[0]) {
-		int lenght = 0;
 		while (str1[lenght] != '\0' || str2[lenght] != '\0') {
 			lenght++;
 		}
+	}
 
-		for (int j = 1; j < lenght; j++) {
-			if (str1[j] < str2[j]) {
-				return 1;
-			}
-			else {
-				return 0;
-			}
+	for (int j = 0; j < lenght; j++) {
+		if (str1[j] < str2[j]) {
+			return 1;
+		}
+		else {
+			return 0;
 		}
 	}
-	return str1[0] < str2[0] ? 1 : 0;
 }
