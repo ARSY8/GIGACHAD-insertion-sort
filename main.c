@@ -1,85 +1,39 @@
 #include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include "insertion_sort.h"
-#include "person_information.h"
-#include "assert_insertion_sort.h"
+#include "rational_numbers.h"
 
 
 int main(void) {
-	run_all_tests();
+	Rational first = { 8, 12 };
+	Rational second = { 8, 24 };
+
+	Rational addition = add(first, second);
+	Rational subtraction = subtract(first, second);
+	Rational multiplication = multiply(first, second);
+	Rational division = divide(first, second);
+	Rational exponentiation = power(first, 2);
+	Rational created_rational = create(8, 12);
+	int comparison = compare(first, second);
+
+	printf("\nСложение:\nЧислитель: %d \nЗнаменатель: %d\n", addition.numerator, addition.denominator);
+	printf("\nВычитание:\nЧислитель: %d \nЗнаменатель: %d\n", subtraction.numerator, subtraction.denominator);
+	printf("\nУмножение:\nЧислитель: %d \nЗнаменатель: %d\n", multiplication.numerator, multiplication.denominator);
+	printf("\nДеление:\nЧислитель: %d \nЗнаменатель: %d\n", division.numerator, division.denominator);
+	printf("\nВозведение в степень:\nЧислитель: %d \nЗнаменатель: %d\n", exponentiation.numerator, exponentiation.denominator);
+
+	if (comparison == 0) {
+		printf("\nfirst = second\n");
+	}
+	else if (comparison == 1) {
+		printf("\nfirst > second\n");
+	}
+	else if (comparison == -1) {
+		printf("\nfirst < second\n");
+	}
+
+	printf("\n%d\n", to_int(created_rational));
+	printf("\n%.2f\n", to_float(created_rational));
+
+	to_str(created_rational);
 
 	return 0;
-}
-
-
-int compare_char(void* a, void* b) {
-	return *(char*)a < *(char*)b ? 1 : 0;
-}
-
-int compare_int(void* a, void* b) {
-	return *(int*)a < *(int*)b ? 1 : 0;
-}
-
-int compare_float(void* a, void* b) {
-	return *(float*)a < *(float*)b ? 1 : 0;
-}
-
-int compare_string_v1(void* a, void* b) {
-	char* str1 = *(char**)a;
-	char* str2 = *(char**)b;
-
-	return strcmp(str1, str2) < 0 ? 1 : 0;
-}
-
-int compare_string_v2(void* a, void* b) {
-	char* str1 = *(char**)a;
-	char* str2 = *(char**)b;
-
-	if (str1[0] == str2[0]) {
-		int lenght = 0;
-		while (str1[lenght] != '\0' || str2[lenght] != '\0') {
-			lenght++;
-		}
-
-		for (int j = 1; j < lenght; j++) {
-			if (str1[j] < str2[j]) {
-				return 1;
-			}
-			else {
-				return 0;
-			}
-		}
-	}
-	return str1[0] < str2[0] ? 1 : 0;
-}
-
-int compare_person_v1(void* a, void* b) {
-	char* str1 = ((INFO*)a)->last_name;
-	char* str2 = ((INFO*)b)->last_name;
-
-	return strcmp(str1, str2) < 0 ? 1 : 0;
-}
-
-int compare_person_v2(void* a, void* b) {
-	char* str1 = ((INFO*)a)->last_name;
-	char* str2 = ((INFO*)b)->last_name;
-
-
-	if (str1[0] == str2[0]) {
-		int lenght = 0;
-		while (str1[lenght] != '\0' || str2[lenght] != '\0') {
-			lenght++;
-		}
-
-		for (int j = 1; j < lenght; j++) {
-			if (str1[j] < str2[j]) {
-				return 1;
-			}
-			else {
-				return 0;
-			}
-		}
-	}
-	return str1[0] < str2[0] ? 1 : 0;
 }
