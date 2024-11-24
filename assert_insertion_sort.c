@@ -49,7 +49,7 @@ void test_insertion_sort_float(void) {
 
 	if (arr_float == NULL) {
 		printf("Память не была выделена.");
-		abort();
+		exit(1);
 	}
 
 	for (int i = 0; i < random_size; i++) {
@@ -73,7 +73,7 @@ void test_insertion_sort_char(void) {
 
 	if (arr_char == NULL) {
 		printf("Память не была выделена.");
-		abort();
+		exit(1);
 	}
 
 	for (int i = 0; i < random_size; i++) {
@@ -102,14 +102,14 @@ void test_insertion_sort_string(void) {
 
 	if (arr_string == NULL) {
 		printf("Ошибка выделения памяти");
-		abort();
+		exit(1);
 	}
 
 	for (int i = 0; i < random_size; i++) {
 		arr_string[i] = malloc(sizeof(char) * random_lenght);
 		if (arr_string[i] == NULL) {
 			printf("Ошибка выделения памяти\n");
-			abort();
+			exit(1);
 		}
 	}
 
@@ -142,7 +142,7 @@ void test_insertion_sort_struct(void) {
 
 	if (persons == NULL) {
 		printf("Память не была выделена.");
-		abort();
+		exit(1);
 	}
 
 	for (int i = 0; i < random_quantity; ++i) {

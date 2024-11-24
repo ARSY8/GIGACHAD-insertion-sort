@@ -11,7 +11,10 @@ void insertion_sort(void* arr, int len, size_t size_in_bytes, int (*compare)(voi
 			void* previous = (char*)arr + (j - 1) * size_in_bytes;
 
 			if (compare(current, previous) == 1) {
-				swap(current, previous, size_in_bytes);
+				swap_memcpy(current, previous, size_in_bytes);
+			}
+			else {
+				break;
 			}
 		}
 	}
@@ -35,7 +38,7 @@ void swap_memcpy(void* a, void* b, size_t size) {
 	  
 	if (temp == NULL) {
 		printf("Не удалось выделить память.\n");
-		abort();
+		exit(1);
 	}
 
 	memcpy(temp, a, size);
