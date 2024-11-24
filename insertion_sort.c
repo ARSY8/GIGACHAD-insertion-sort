@@ -1,5 +1,6 @@
 #include "insertion_sort.h"
 #include "person_information.h"
+#include "assert_insertion_sort.h"
 #include <string.h>
 #include <stdlib.h>
 

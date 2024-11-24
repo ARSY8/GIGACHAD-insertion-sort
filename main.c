@@ -8,7 +8,7 @@
 
 int main(void) {
 	run_all_tests();
-
+	printf("Все тесты были пройдены успешно.");
 	return 0;
 }
 
