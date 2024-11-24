@@ -13,9 +13,6 @@ void insertion_sort(void* arr, int len, size_t size_in_bytes, int (*compare)(voi
 			if (compare(current, previous) == 1) {
 				swap(current, previous, size_in_bytes);
 			}
-			else {
-				break;
-			}
 		}
 	}
 }
