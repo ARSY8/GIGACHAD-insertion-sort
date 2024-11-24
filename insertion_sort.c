@@ -1,5 +1,7 @@
 #include "insertion_sort.h"
 #include "person_information.h"
+#include <string.h>
+#include <stdlib.h>
 
 
 void insertion_sort(void* arr, int len, size_t size_in_bytes, int (*compare)(void*, void*)) {
